@@ -2,20 +2,49 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5f;  // Скорость движения персонажа
+    public float speed = 5f; // Скорость движения персонажа
+    private Rigidbody2D rb;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+
+    private Vector2 movement;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     void Update()
     {
-        // Проверяем нажатие клавиши "влево"
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            transform.position += Vector3.left * speed * Time.deltaTime;
-        }
+        // Получаем оси движения
+        movement.x = Input.GetAxisRaw("Horizontal");
 
-        // Проверяем нажатие клавиши "вправо"
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        // Включаем анимацию ходьбы если персонаж движется
+        if (movement.x != 0)
         {
-            transform.position += Vector3.right * speed * Time.deltaTime;
+            animator.SetBool("isWalking", true);
+
+            // Зеркально отображаем спрайт в зависимости от направления движения
+            if (movement.x > 0)
+            {
+                spriteRenderer.flipX = false;
+            }
+            else if (movement.x < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
         }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        // Перемещаем персонажа
+        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
     }
 }
