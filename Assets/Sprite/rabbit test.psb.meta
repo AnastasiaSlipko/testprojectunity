@@ -94,6 +94,48 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
+  - name: fork 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 165
+      width: 131
+      height: 89
+    spriteID: b9b0da9e3ed153b41adca7cbf16b4340
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 165}
+    spritePosition: {x: 0, y: 7}
+  - name: hand_r 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 211
+      y: 165
+      width: 38
+      height: 36
+    spriteID: a692216eed9c005468025915cfd8f702
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 211, y: 165}
+    spritePosition: {x: 127, y: 21}
   - name: head
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -122,8 +164,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 166
-      y: 76
+      x: 211
+      y: 209
       width: 38
       height: 36
     spriteID: 2f0a834e4b03c93428a38855e5ec506c
@@ -134,7 +176,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 166, y: 76}
+    uvTransform: {x: 211, y: 209}
     spritePosition: {x: 127, y: 21}
   - name: body
     originalName: 
@@ -143,8 +185,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 166
-      y: 4
+      x: 143
+      y: 165
       width: 60
       height: 64
     spriteID: f928d7a8d9002b546b9e5451ef169adb
@@ -155,7 +197,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 166, y: 4}
+    uvTransform: {x: 143, y: 165}
     spritePosition: {x: 81, y: 12}
   - name: leg_l
     originalName: 
@@ -164,8 +206,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 196
-      y: 120
+      x: 219
+      y: 262
       width: 21
       height: 36
     spriteID: 901197a37ca56a0478b8bbe82b29a7a9
@@ -176,7 +218,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 196, y: 120}
+    uvTransform: {x: 219, y: 262}
     spritePosition: {x: 85, y: 0}
   - name: leg_r
     originalName: 
@@ -185,8 +227,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 166
-      y: 120
+      x: 189
+      y: 262
       width: 22
       height: 36
     spriteID: dc86a22b3a65c6942a533de5aeb8acfb
@@ -197,7 +239,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 166, y: 120}
+    uvTransform: {x: 189, y: 262}
     spritePosition: {x: 115, y: 0}
   - name: fork
     originalName: 
@@ -207,7 +249,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 165
+      y: 262
       width: 131
       height: 89
     spriteID: cf7000e7f5a937f48aac5747eea018c7
@@ -218,7 +260,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 165}
+    uvTransform: {x: 4, y: 262}
     spritePosition: {x: 0, y: 7}
   - name: hand_l
     originalName: 
@@ -227,8 +269,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 212
-      y: 76
+      x: 143
+      y: 262
       width: 38
       height: 36
     spriteID: 52e14c79f10429a449fcfc935f2d21b3
@@ -239,7 +281,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 212, y: 76}
+    uvTransform: {x: 143, y: 262}
     spritePosition: {x: 60, y: 22}
   characterData:
     bones: []
@@ -277,6 +319,26 @@ ScriptedImporter:
   resliceFromLayer: 0
   mosaicPSDLayers: []
   rigPSDLayers:
+  - name: hand_r 2
+    spriteName: hand_r 2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a692216eed9c005468025915cfd8f702
+    layerID: 18
+    mosaicPosition: {x: 211, y: 165}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: fork 2
+    spriteName: fork 2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: b9b0da9e3ed153b41adca7cbf16b4340
+    layerID: 17
+    mosaicPosition: {x: 4, y: 165}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: head
     spriteName: head
     isGroup: 0
@@ -293,7 +355,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 2f0a834e4b03c93428a38855e5ec506c
     layerID: 15
-    mosaicPosition: {x: 166, y: 76}
+    mosaicPosition: {x: 211, y: 209}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -303,7 +365,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: f928d7a8d9002b546b9e5451ef169adb
     layerID: 14
-    mosaicPosition: {x: 166, y: 4}
+    mosaicPosition: {x: 143, y: 165}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -313,7 +375,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 901197a37ca56a0478b8bbe82b29a7a9
     layerID: 13
-    mosaicPosition: {x: 196, y: 120}
+    mosaicPosition: {x: 219, y: 262}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -323,7 +385,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: dc86a22b3a65c6942a533de5aeb8acfb
     layerID: 12
-    mosaicPosition: {x: 166, y: 120}
+    mosaicPosition: {x: 189, y: 262}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -333,7 +395,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: cf7000e7f5a937f48aac5747eea018c7
     layerID: 11
-    mosaicPosition: {x: 4, y: 165}
+    mosaicPosition: {x: 4, y: 262}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -343,7 +405,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 52e14c79f10429a449fcfc935f2d21b3
     layerID: 10
-    mosaicPosition: {x: 212, y: 76}
+    mosaicPosition: {x: 143, y: 262}
     flatten: 0
     isImported: 1
     isVisible: 1

@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        // Получаем необходимые компоненты
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -18,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Получаем оси движения
+        // Получаем горизонтальное движение
         movement.x = Input.GetAxisRaw("Horizontal");
 
         // Включаем анимацию ходьбы если персонаж движется
@@ -26,15 +27,18 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("isWalking", true);
 
-            // Зеркально отображаем спрайт в зависимости от направления движения
+            // Проверка и управление зеркальным отображением спрайта
             if (movement.x > 0)
             {
-                spriteRenderer.flipX = false;
+                spriteRenderer.flipX = false; // Направление вправо
             }
             else if (movement.x < 0)
             {
-                spriteRenderer.flipX = true;
+                spriteRenderer.flipX = true; // Направление влево
             }
+
+            // Debug: Отслеживаем значение flipX
+            Debug.Log("flipX: " + spriteRenderer.flipX);
         }
         else
         {
