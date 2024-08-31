@@ -1,54 +1,56 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class CharacterController : MonoBehaviour
 {
-    public float speed = 5f; // Скорость движения персонажа
-    private Rigidbody2D rb;
-    private Animator animator;
-    private SpriteRenderer spriteRenderer;
-
-    private Vector2 movement;
+    public float moveSpeed = 5f; // Скорость движения персонажа
+    private Rigidbody2D rb; // Ссылка на компонент Rigidbody2D
+    private Animator animator; // Ссылка на компонент Animator
+    private bool facingRight = true; // Переменная для отслеживания направления персонажа
 
     void Start()
     {
-        // Получаем необходимые компоненты
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>(); // Получаем компонент Rigidbody2D
+        animator = GetComponent<Animator>(); // Получаем компонент Animator
     }
 
     void Update()
     {
-        // Получаем горизонтальное движение
-        movement.x = Input.GetAxisRaw("Horizontal");
+        // Получаем горизонтальное направление (влево или вправо)
+        float moveInput = Input.GetAxis("Horizontal");
 
-        // Включаем анимацию ходьбы если персонаж движется
-        if (movement.x != 0)
+        // Двигаем персонажа
+        Vector2 movement = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        rb.velocity = movement;
+
+        // Обновляем состояние анимации
+        bool isWalking = Mathf.Abs(moveInput) > 0;
+        animator.SetBool("isWalking", isWalking);
+
+        // Проверяем и флипаем персонажа в зависимости от направления движения
+        if (moveInput > 0 && !facingRight)
         {
-            animator.SetBool("isWalking", true);
-
-            // Проверка и управление зеркальным отображением спрайта
-            if (movement.x > 0)
-            {
-                spriteRenderer.flipX = false; // Направление вправо
-            }
-            else if (movement.x < 0)
-            {
-                spriteRenderer.flipX = true; // Направление влево
-            }
-
-            // Debug: Отслеживаем значение flipX
-            Debug.Log("flipX: " + spriteRenderer.flipX);
+            Flip();
         }
-        else
+        else if (moveInput < 0 && facingRight)
         {
-            animator.SetBool("isWalking", false);
+            Flip();
+        }
+
+        // Активируем анимацию атаки при нажатии пробела
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetTrigger("attack");
         }
     }
 
-    void FixedUpdate()
+    // Метод для флипа персонажа
+    void Flip()
     {
-        // Перемещаем персонажа
-        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        facingRight = !facingRight; // Переключаем направление
+
+        // Инвертируем масштаб по оси X
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1;
+        transform.localScale = localScale;
     }
 }
