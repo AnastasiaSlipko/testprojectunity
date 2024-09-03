@@ -9,8 +9,20 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>(); // Получаем компонент Rigidbody2D
-        animator = GetComponent<Animator>(); // Получаем компонент Animator
+        rb = GetComponent<Rigidbody2D>();
+        if (rb == null)
+        {
+            Debug.LogError("Rigidbody2D не найден на объекте");
+        }
+
+        animator = GetComponent<Animator>();
+        if (animator == null)
+        {
+            Debug.LogError("Animator не найден на объекте");
+        }
+
+        // Отключаем root motion
+        animator.applyRootMotion = false;
     }
 
     void Update()
@@ -27,11 +39,11 @@ public class CharacterController : MonoBehaviour
         animator.SetBool("isWalking", isWalking);
 
         // Проверяем и флипаем персонажа в зависимости от направления движения
-        if (moveInput > 0 && !facingRight)
+        if (moveInput < 0 && !facingRight)
         {
             Flip();
         }
-        else if (moveInput < 0 && facingRight)
+        else if (moveInput > 0 && facingRight)
         {
             Flip();
         }
@@ -39,6 +51,8 @@ public class CharacterController : MonoBehaviour
         // Активируем анимацию атаки при нажатии пробела
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            // Приостанавливаем движение во время атаки
+            rb.velocity = new Vector2(0, rb.velocity.y);
             animator.SetTrigger("attack");
         }
     }
@@ -52,5 +66,10 @@ public class CharacterController : MonoBehaviour
         Vector3 localScale = transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
+    }
+
+    void OnAnimatorMove()
+    {
+        // Игнорируем изменения позиции анимацией
     }
 }
